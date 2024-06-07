@@ -1,4 +1,5 @@
 import express from "express";
+import { foodsRouter } from "./src/routes/foods.routes.js";
 const app = express();
 const port = 3000;
 
@@ -6,6 +7,8 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+app.use("/", foodsRouter);
 
 app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");

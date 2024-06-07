@@ -1,0 +1,38 @@
+
+###
+GET http://127.0.0.1:3000/
+
+###
+GET http://127.0.0.1:3000/api/comidas
+
+###
+GET http://127.0.0.1:3000/api/other
+
+###
+GET http://127.0.0.1:3000/api/comidas/b3af9202-aa7e-4d81-b376-0a5ef8761cb3
+
+###
+POST http://127.0.0.1:3000/api/comidas
+Content-Type: application/json
+
+{
+    "nombre": "Pizza de pepperoni",
+    "ingredientes": [
+        "Masa de pizza",
+        "Salsa de tomate",
+        "Queso mozzarella",
+        "Pepperoni"
+    ]
+}
+
+
+###
+PUT http://127.0.0.1:3000/api/comidas/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
+Content-Type: application/json
+
+{
+    "ingredientes": "HTTP protocol joya"
+}
+
+###
+DELETE http://127.0.0.1:3000/api/comidas/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
