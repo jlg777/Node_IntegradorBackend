@@ -30,7 +30,15 @@ PUT http://127.0.0.1:3000/api/comidas/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
 Content-Type: application/json
 
 {
-    "ingredientes": "HTTP protocol joya"
+    "nombre": "Pizza de pepperoni",
+    "ingredientes": [
+      "Pasta",
+      "Crema de leche",
+      "Mantequilla",
+      "Ajo",
+      "Parmesano",
+      "Pimienta"
+    ]
 }
 
 ### ENVIA UNA PETICION PARA ELIMINAR UN RECURSO

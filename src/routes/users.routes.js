@@ -9,3 +9,5 @@ usersRouter.post;
 usersRouter.put;
 
 usersRouter.delete;
+
+export { usersRouter };

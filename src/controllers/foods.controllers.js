@@ -45,24 +45,29 @@ export const ctrlPostFood = (request, response) => {
 export const ctrlPutFood = (request, response) => {
   try {
     const { id } = request.params;
-    const { ingredientes } = request.body;
+    const { nombre, ingredientes } = request.body;
 
-    const noteIndex = foods.findIndex((note) => note.id == id);
+    const foodIndex = foods.findIndex((food) => food.id === id);
 
-    if (noteIndex < 0) {
-      return response.status(200).json({
-        message: "Nota no encontrada",
+    if (foodIndex === -1) {
+      return response.status(404).json({
+        message: "Comida no encontrada",
       });
     }
 
-    // Actualizar el contenido de la nota
-    foods[noteIndex].ingredientes = ingredientes;
+    if (nombre) {
+      foods[foodIndex].nombre = nombre;
+    }
 
-    // Enviar una respuesta indicando que la nota ha sido actualizada
-    response.status(404).json({
-      message: "Nota actualizada correctamente",
+    if (ingredientes) {
+      foods[foodIndex].ingredientes = ingredientes;
+    }
+
+    response.status(200).json({
+      message: "Comida actualizada correctamente",
     });
   } catch (error) {
+    console.error("Error interno del servidor:", error);
     response.status(500).send("Error interno del servidor");
   }
 };

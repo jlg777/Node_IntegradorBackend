@@ -6,6 +6,8 @@ import {
   ctrlPostFood,
   ctrlPutFood,
 } from "../controllers/foods.controllers.js";
+import { createFoodsSchema, updateFoodsSchema } from "../schema/foods.schema.js";
+import { validateFood } from "../middlewares/validator.js";
 
 const foodsRouter = Router();
 
@@ -13,9 +15,9 @@ foodsRouter.get("/api/comidas", ctrlGetFoods);
 
 foodsRouter.get("/api/comidas/:id", ctrlGetFood);
 
-foodsRouter.post("/api/comidas", ctrlPostFood);
+foodsRouter.post("/api/comidas", createFoodsSchema, validateFood, ctrlPostFood);
 
-foodsRouter.put("/api/comidas/:id", ctrlPutFood);
+foodsRouter.put("/api/comidas/:id", updateFoodsSchema, validateFood, ctrlPutFood);
 
 foodsRouter.delete("/api/comidas/:id", ctrlDeleteFood);
 
