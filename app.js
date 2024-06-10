@@ -1,8 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import { foodsRouter } from "./src/routes/foods.routes.js";
+import path from "path";
+
 const app = express();
 dotenv.config();
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const port = process.env.PORT;
 const dbHost = process.env.DB_HOST;
@@ -10,7 +14,8 @@ const dbHost = process.env.DB_HOST;
 // Middleware para analizar solicitudes JSON y formularios URL-encoded
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+// Configura Express para servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", foodsRouter);
 

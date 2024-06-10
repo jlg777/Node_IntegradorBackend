@@ -1,5 +1,5 @@
 import * as crypto from "crypto";
-import { foods } from "../../public/foods.js";
+import { foods } from "../../public/mocks/foods.js";
 
 export const ctrlGetFoods = (request, response) => {
   try {
