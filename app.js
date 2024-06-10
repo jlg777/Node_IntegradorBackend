@@ -1,7 +1,11 @@
 import express from "express";
+import dotenv from "dotenv";
 import { foodsRouter } from "./src/routes/foods.routes.js";
 const app = express();
-const port = 3000;
+dotenv.config();
+
+const port = process.env.PORT;
+const dbHost = process.env.DB_HOST;
 
 // Middleware para analizar solicitudes JSON y formularios URL-encoded
 app.use(express.json());
@@ -16,4 +20,5 @@ app.use((request, response) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+  console.log(`http://${dbHost}:${port}`);
 });
