@@ -1,17 +1,17 @@
 
-###
+### ENVIA UNA PETICION AL ORIGEN
 GET http://127.0.0.1:3000/
 
-###
+### ENVIA UNA PETICION Y DEVUELVE JSON DE RECETAS
 GET http://127.0.0.1:3000/api/comidas
 
-###
+### ENVIA UNA PETICION ERRONEA
 GET http://127.0.0.1:3000/api/other
 
-###
+### ENVIA UNA PETICION POR ID
 GET http://127.0.0.1:3000/api/comidas/b3af9202-aa7e-4d81-b376-0a5ef8761cb3
 
-###
+### ENVIA UNA PETICION PARA CREAR UN NUEVO RECURSO
 POST http://127.0.0.1:3000/api/comidas
 Content-Type: application/json
 
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 
-###
+### ENVIA UNA PETICION PARA MODIFICAR UN RECURSO
 PUT http://127.0.0.1:3000/api/comidas/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
 Content-Type: application/json
 
@@ -34,5 +34,5 @@ Content-Type: application/json
     "ingredientes": "HTTP protocol joya"
 }
 
-###
+### ENVIA UNA PETICION PARA ELIMINAR UN RECURSO
 DELETE http://127.0.0.1:3000/api/comidas/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
