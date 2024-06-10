@@ -6,14 +6,14 @@ import {
   ctrlPostFood,
   ctrlPutFood,
 } from "../controllers/foods.controllers.js";
-import { createFoodsSchema, updateFoodsSchema } from "../schema/foods.schema.js";
+import { createFoodsSchema, updateFoodsSchema, viewFoodsSchema } from "../schema/foods.schema.js";
 import { validateFood } from "../middlewares/validator.js";
 
 const foodsRouter = Router();
 
 foodsRouter.get("/api/comidas", ctrlGetFoods);
 
-foodsRouter.get("/api/comidas/:id", ctrlGetFood);
+foodsRouter.get("/api/comidas/:id", viewFoodsSchema, validateFood, ctrlGetFood);
 
 foodsRouter.post("/api/comidas", createFoodsSchema, validateFood, ctrlPostFood);
 
