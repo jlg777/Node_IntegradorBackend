@@ -6,6 +6,7 @@ const userCardCorreo = document.querySelector(".correo");
 const userCardName = document.querySelector(".name");
 const userCardCreateAt = document.querySelector(".createAt");
 const userCardUpdateAt = document.querySelector(".updateAt");
+const userCardUserId = document.querySelector(".userid");
 
 if (localStorage.getItem("user")) {
   // registo.innerHTML = user.email_user;
@@ -29,4 +30,5 @@ if (localStorage.getItem("user")) {
   userCardName.textContent = `Nombre: ${userlogueado.nombre}`;
   userCardCreateAt.textContent = `Creado: ${userlogueado.createAt}`;
   userCardUpdateAt.textContent = `Actualizado: ${userlogueado.updateAt}`;
+  userCardUserId.textContent = `ID: ${userlogueado.id}`;
 }
