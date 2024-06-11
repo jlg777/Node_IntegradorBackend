@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { foodsRouter } from "./src/routes/foods.routes.js";
 import path from "path";
+import { usersRouter } from "./src/routes/users.routes.js";
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
 app.use("/", foodsRouter);
+app.use("/user", usersRouter);
 
 /*app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");

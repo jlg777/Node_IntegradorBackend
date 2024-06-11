@@ -1,13 +1,22 @@
 import { Router } from "express";
+import {
+  ctrlDeleteFood,
+  ctrlGetUser,
+  ctrlGetUsers,
+  ctrlPostUser,
+  ctrlPutFood,
+} from "../controllers/users.controllers.js";
 
 const usersRouter = Router();
 
-usersRouter.get;
+usersRouter.get("/", ctrlGetUsers);
 
-usersRouter.post;
+usersRouter.get("/:id", ctrlGetUser);
 
-usersRouter.put;
+usersRouter.post("/", ctrlPostUser);
 
-usersRouter.delete;
+usersRouter.put("/:id", ctrlPutFood);
+
+usersRouter.delete("/:id", ctrlDeleteFood);
 
 export { usersRouter };

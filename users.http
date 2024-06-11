@@ -1,0 +1,30 @@
+
+### ENVIA UNA PETICION AL ORIGEN
+GET http://127.0.0.1:3000/user
+
+
+### ENVIA UNA PETICION POR ID
+GET http://127.0.0.1:3000/user/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
+
+### ENVIA UNA PETICION PARA CREAR UN NUEVO RECURSO
+POST http://127.0.0.1:3000/user
+Content-Type: application/json
+
+{
+    "nombre":"Pepe",
+    "correo": "hongo",
+    "contraseña": "12345"
+}
+
+### ENVIA UNA PETICION PARA MODIFICAR UN RECURSO
+PUT http://127.0.0.1:3000/user/2c6f98cf-39b4-4be5-a4c5-35b9c85d6a9e
+Content-Type: application/json
+
+{
+    "nombre":"Pepe",
+    "correo": "hongo",
+    "contraseña": "12345"
+}
+
+### ENVIA UNA PETICION PARA ELIMINAR UN RECURSO
+DELETE http://127.0.0.1:3000/user/507b0251-fa26-4d8b-82cf-05fcf38c39b4
