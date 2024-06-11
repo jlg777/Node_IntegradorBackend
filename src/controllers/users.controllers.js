@@ -38,7 +38,7 @@ export const ctrlPostUser = (request, response) => {
       avatar: "avatar",
       rol: "admin",
       createAt: new Date().toLocaleString(),
-      update: new Date().toLocaleString(),
+      updateAt: new Date().toLocaleString(),
     };
     users.push(newUser);
     response.status(201).json({

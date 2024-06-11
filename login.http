@@ -1,0 +1,8 @@
+### ENVIA UNA PETICION PARA consultar un usuario
+POST http://127.0.0.1:3000/login
+Content-Type: application/json
+
+{
+    "correo": "prueba@gmail.com",
+    "contraseña": "123456"
+}

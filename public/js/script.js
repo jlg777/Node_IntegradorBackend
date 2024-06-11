@@ -24,6 +24,6 @@ if (localStorage.getItem("user")) {
   userLoged.classList.remove("invisible");
   userLoged.classList.add("visible");
   var userName1 = document.createElement("p");
-  userName1.textContent = user.email_user;
+  userName1.textContent = user.nombre;
   userName.appendChild(userName1);
 }
