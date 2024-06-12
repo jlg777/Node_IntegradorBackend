@@ -7,7 +7,7 @@ export const users = [
     genero: "masculino",
     avatar: "icono prueba",
     rol: "admin",
-    createAt: "timestamps",
-    updateAt: "timestamps",
+    createAt: "12/6/2024, 16:51:22",
+    updateAt: "12/6/2024, 16:51:22",
   },
 ];

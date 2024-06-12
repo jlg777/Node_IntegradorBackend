@@ -9,7 +9,7 @@ nuevoEnlace.setAttribute("href", "./pages/user.html");
 const userLoged = document.getElementById("dropdown");
 const userName = document.getElementById("userName");
 
-console.log(user);
+//console.log(user);
 if (localStorage.getItem("user")) {
   // registo.innerHTML = user.email_user;
   // registo.href = "user.html";

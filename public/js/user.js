@@ -1,6 +1,6 @@
 const userlogueado = JSON.parse(localStorage.getItem("user"));
-const userLoged = document.getElementById("dropdown");
-const userName = document.getElementById("userName");
+let userLogedi = document.getElementById("dropdown");
+const userNameID = document.getElementById("userName");
 const userCardTitle = document.querySelector(".card-title");
 const userCardCorreo = document.querySelector(".correo");
 const userCardName = document.querySelector(".name");
@@ -9,21 +9,11 @@ const userCardUpdateAt = document.querySelector(".updateAt");
 const userCardUserId = document.querySelector(".userid");
 
 if (localStorage.getItem("user")) {
-  // registo.innerHTML = user.email_user;
-  // registo.href = "user.html";
-  /*nuevoEnlace.textContent = user.email_user;
-    nuevoElemento.appendChild(nuevoEnlace);
-    nuevoElemento.classList.add("--bs-primary-text-emphasis");
-    nuevoElemento.classList.add("nav-item");
-    nuevoElemento.classList.add("nav-link");
-    nuevoElemento.classList.add("mx-2");
-    lista.appendChild(nuevoElemento);*/
-
-  userLoged.classList.remove("invisible");
-  userLoged.classList.add("visible");
+  userLogedi.classList.remove("invisible");
+  userLogedi.classList.add("visible");
   var userName1 = document.createElement("p");
   userName1.textContent = userlogueado.email_user;
-  userName.appendChild(userName1);
+  userNameID.appendChild(userName1);
 
   userCardTitle.textContent = "Bienvenido";
   userCardCorreo.textContent = `Correo electrónico: ${userlogueado.correo}`;
