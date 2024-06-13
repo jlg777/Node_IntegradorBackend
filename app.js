@@ -5,6 +5,7 @@ import path from "path";
 import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
 import { loginRouter } from "./src/routes/login.routes.js";
+import { startDb } from "./src/config/database.js";
 
 const app = express();
 dotenv.config();
@@ -37,4 +38,5 @@ app.use("/login", loginRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   console.log(`http://${dbHost}:${port}`);
+  startDb();
 });
