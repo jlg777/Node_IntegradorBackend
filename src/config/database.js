@@ -1,11 +1,21 @@
-import Sequelize from "sequelize";
+import { Sequelize } from "sequelize";
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize("db_prueba", "root", "", {
+export const sequelize = new Sequelize("db_prueba", "root", "", {
   host: "localhost",
   port: 3308,
   dialect: "mysql",
 });
+
+//Option B
+/*export const sequelize1 = new Sequelize("db_prueba", "root", "", {
+  define: {
+    freezeTableName: true,
+  },
+  host: "localhost",
+  port: 3308,
+  dialect: "mysql",
+});*/
 
 export const startDb = async () => {
   try {

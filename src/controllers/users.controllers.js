@@ -1,15 +1,24 @@
 import * as crypto from "crypto";
-import { users } from "../../public/mocks/users.js";
+import { UserModel } from "../models/Users.js";
 
-export const ctrlGetUsers = (request, response) => {
+export const ctrlGetUsers = async (request, response) => {
   try {
-    response.json(users);
+    // Obtener todos los usuarios de la base de datos
+    const users = UserModel.findAll();
+    // Verificar si se encontraron usuarios
+    if (!users || users.length === 0) {
+      return response.status(404).send("Usuarios no encontrados");
+    }
+
+    // Si se encontraron usuarios, devolverlos como respuesta
+    return response.status(200).json(users);
   } catch (error) {
-    response.status(500).send("Error interno del servidor");
+    console.error("Error al obtener usuarios:", error);
+    return response.status(500).send("Error interno del servidor");
   }
 };
 
-export const ctrlGetUser = (request, response) => {
+/*export const ctrlGetUser = (request, response) => {
   try {
     const { id } = request.params;
     console.log(id);
@@ -23,33 +32,21 @@ export const ctrlGetUser = (request, response) => {
   } catch (error) {
     response.status(500).send("Error interno del servidor");
   }
-};
+};*/
 
-export const ctrlPostUser = (request, response) => {
+export const ctrlPostUser = async (request, response) => {
   try {
-    const { nombre, correo, contraseña } = request.body;
-
-    const newUser = {
-      id: crypto.randomUUID(),
-      nombre,
-      correo,
-      contraseña,
-      genero: "masculino",
-      avatar: "avatar",
-      rol: "admin",
-      createAt: new Date().toLocaleString(),
-      updateAt: new Date().toLocaleString(),
-    };
-    users.push(newUser);
+    const newUser = await UserModel.create();
     response.status(201).json({
       message: "Usuario creado correctamente",
+      newUser,
     });
   } catch (error) {
     response.status(500).send("Error interno del servidor");
   }
 };
 
-export const ctrlPutFood = (request, response) => {
+/*export const ctrlPutFood = (request, response) => {
   try {
     const { id } = request.params;
     const { nombre, correo, contraseña, genero, avatar, rol, create, update } = request.body;
@@ -111,4 +108,4 @@ export const ctrlDeleteFood = (request, response) => {
   } catch (error) {
     response.status(500).send("Error interno del servidor");
   }
-};
+};*/
