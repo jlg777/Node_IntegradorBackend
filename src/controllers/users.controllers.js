@@ -1,11 +1,13 @@
 import * as crypto from "crypto";
-import { UserModel } from "../models/Users.js";
+//import { UserModel } from "../models/Users.js";
 import { Usuario } from "../models/user.model.js";
+import { hashPassword } from "../utils/hashPassword.js";
 
 export const ctrlGetUsers = async (request, response) => {
   try {
     // Obtener todos los usuarios de la base de datos
-    const users = Usuario.findAll();
+    const users = await Usuario.findAll(); // Agregar await aquí
+
     // Verificar si se encontraron usuarios
     if (!users || users.length === 0) {
       return response.status(404).send("Usuarios no encontrados");
@@ -49,16 +51,17 @@ export const ctrlGetUsers = async (request, response) => {
 };*/
 
 // Función para crear un nuevo usuario
-// Función para crear un nuevo usuario
 export async function ctrlPostUser(req, res) {
-  const { nombre, correo, contraseña } = req.body;
-
   try {
+    const { correo, contraseña } = req.body;
+
+    const hashedPassword = await hashPassword(contraseña);
+
     // Crea un nuevo registro de usuario en la base de datos
     const nuevoUsuario = await Usuario.create({
-      nombre,
+      id: crypto.randomUUID(),
       correo,
-      contraseña,
+      contraseña: hashedPassword,
     });
 
     // Envía una respuesta con el nuevo usuario creado

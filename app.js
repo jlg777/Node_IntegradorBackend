@@ -6,6 +6,7 @@ import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
 import { loginRouter } from "./src/routes/login.routes.js";
 import { startDb } from "./src/config/db.js";
+import { sync } from "./src/models/user.model.js";
 
 const app = express();
 dotenv.config();
@@ -39,4 +40,6 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   console.log(`http://${dbHost}:${port}`);
   startDb();
+  //descomentar para reiniciar la db
+  //sync();
 });
