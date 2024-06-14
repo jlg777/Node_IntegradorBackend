@@ -5,7 +5,7 @@ import path from "path";
 import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
 import { loginRouter } from "./src/routes/login.routes.js";
-import { startDb } from "./src/config/database.js";
+import { startDb } from "./src/config/db.js";
 
 const app = express();
 dotenv.config();

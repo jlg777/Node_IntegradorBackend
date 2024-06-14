@@ -2,17 +2,10 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
 
 export const UserModel = sequelize.define(
-  "User",
+  "user",
   {
-    id: { type: DataTypes.STRING, primaryKey: true, allowNull: true },
-    nombre: { type: DataTypes.STRING, allowNull: true },
-    correo: { type: DataTypes.STRING, allowNull: true },
-    contraseña: { type: DataTypes.STRING, allowNull: true },
-    /*genero: { type: DataTypes.STRING, allowNull: true },
-  avatar: { type: DataTypes.STRING, allowNull: true },
-  rol: { type: DataTypes.STRING, allowNull: true },
-  createAt: { type: DataTypes.STRING, allowNull: true },
-  updateAt: { type: DataTypes.STRING, allowNull: true },*/
+    correo: { type: DataTypes.STRING },
+    contrasena: { type: DataTypes.STRING },
   },
   {
     timestamps: false,

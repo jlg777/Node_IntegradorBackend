@@ -1,10 +1,11 @@
 import * as crypto from "crypto";
 import { UserModel } from "../models/Users.js";
+import { Usuario } from "../models/user.model.js";
 
 export const ctrlGetUsers = async (request, response) => {
   try {
     // Obtener todos los usuarios de la base de datos
-    const users = UserModel.findAll();
+    const users = Usuario.findAll();
     // Verificar si se encontraron usuarios
     if (!users || users.length === 0) {
       return response.status(404).send("Usuarios no encontrados");
@@ -34,8 +35,9 @@ export const ctrlGetUsers = async (request, response) => {
   }
 };*/
 
-export const ctrlPostUser = async (request, response) => {
+/*export const ctrlPostUser = async (request, response) => {
   try {
+    const { nombre, correo, contrasena } = request.body;
     const newUser = await UserModel.create();
     response.status(201).json({
       message: "Usuario creado correctamente",
@@ -44,7 +46,34 @@ export const ctrlPostUser = async (request, response) => {
   } catch (error) {
     response.status(500).send("Error interno del servidor");
   }
-};
+};*/
+
+// Función para crear un nuevo usuario
+// Función para crear un nuevo usuario
+export async function ctrlPostUser(req, res) {
+  const { nombre, correo, contraseña } = req.body;
+
+  try {
+    // Crea un nuevo registro de usuario en la base de datos
+    const nuevoUsuario = await Usuario.create({
+      nombre,
+      correo,
+      contraseña,
+    });
+
+    // Envía una respuesta con el nuevo usuario creado
+    res.status(201).json({
+      message: "Usuario creado correctamente",
+      usuario: nuevoUsuario.toJSON(),
+    });
+  } catch (error) {
+    // Si ocurre un error, envía una respuesta con el código de estado 500 (Internal Server Error)
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+}
+
+// Llama a la función para crear un nuevo usuario
+//ctrlPostUser("Pepe", "pepe@example.com", "12345");
 
 /*export const ctrlPutFood = (request, response) => {
   try {

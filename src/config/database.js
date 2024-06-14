@@ -17,11 +17,11 @@ export const sequelize = new Sequelize("db_prueba", "root", "", {
   dialect: "mysql",
 });*/
 
-export const startDb = async () => {
+/*export const startDb = async () => {
   try {
     await sequelize.authenticate();
     console.log("Conexio establecida exitosamente.");
   } catch (error) {
     console.error("No se pudo conectar a la database:", error);
   }
-};
+};*/
