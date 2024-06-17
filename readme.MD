@@ -1,4 +1,5 @@
-- crear elproyecto "npm init -y"
+- crear el proyecto "npm init -y"
+- crear el proyecto "git init"
 - en el package se agrega "type": "module" <!-- saber la diferencia entre ecmascript/commonjs -->
 - dependencia "nodemon"
 - script auto run para nodemon
