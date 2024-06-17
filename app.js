@@ -1,12 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
-import { foodsRouter } from "./src/routes/foods.routes.js";
+//import { foodsRouter } from "./src/routes/foods.routes.js";
 import path from "path";
 import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
-import { loginRouter } from "./src/routes/login.routes.js";
-import { startDb } from "./src/config/db.js";
-import { sync } from "./src/models/user.model.js";
+//import { loginRouter } from "./src/routes/login.routes.js";
+//import { startDb } from "./src/config/db.js";
+//import { sync } from "./src/models/user.model.js";
 
 const app = express();
 dotenv.config();
@@ -24,9 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 // Configura Express para servir archivos estáticos desde la carpeta 'public'
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
-app.use("/", foodsRouter);
+
 app.use("/user", usersRouter);
-app.use("/login", loginRouter);
+
 
 /*app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");
@@ -39,7 +39,4 @@ app.use("/login", loginRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
   console.log(`http://${dbHost}:${port}`);
-  startDb();
-  //descomentar para reiniciar la db
-  sync();
 });

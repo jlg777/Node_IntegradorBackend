@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../config/db.js";
+//import { sequelize } from "../config/db.js";
 
 // Define el modelo de usuario
-export const Usuario = sequelize.define(
+/*export const Usuario = sequelize.define(
   "Usuario",
   {
     id: {
@@ -29,4 +29,4 @@ export const Usuario = sequelize.define(
 export const sync = async () => {
   await Usuario.sync({ force: true });
   console.log("The table for the User model was just (re)created!");
-};
+};*/
