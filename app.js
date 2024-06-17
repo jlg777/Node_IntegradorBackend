@@ -41,5 +41,5 @@ app.listen(port, () => {
   console.log(`http://${dbHost}:${port}`);
   startDb();
   //descomentar para reiniciar la db
-  //sync();
+  sync();
 });

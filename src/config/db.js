@@ -2,8 +2,8 @@ import { Sequelize } from "sequelize";
 
 // Configurar la conexión a la base de datos
 export const sequelize = new Sequelize("dbprueba", "root", "", {
-  host: "localhost",
-  port: 3308,
+  host: "127.0.0.1",
+  //port: 3308,
   dialect: "mysql", // O el dialecto de tu base de datos (postgresql, sqlite, etc.)
 });
 

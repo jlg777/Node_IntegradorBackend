@@ -3,6 +3,6 @@ POST http://127.0.0.1:3000/login
 Content-Type: application/json
 
 {
-    "correo": "pepe5@example.com",
-    "contraseña": "12345"
+    "correo": "prueba@gmail.com",
+    "contraseña": "123456"
 }

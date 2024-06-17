@@ -11,7 +11,8 @@ POST http://127.0.0.1:3000/user
 Content-Type: application/json
 
 {
-    "correo": "pepe56@example.com",
+    "nombre":"Pepe",
+    "correo": "hongo",
     "contraseña": "12345"
 }
 
