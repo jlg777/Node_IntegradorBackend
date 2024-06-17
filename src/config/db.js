@@ -1,7 +1,14 @@
 import { createConnection } from "mysql2";
+import dotenv from "dotenv";
+
+dotenv.config();
+const dbUser = process.env.DB_USER;
+
+
+
 const connection = createConnection({
   host: "localhost",
-  user: "root",
+  user: dbUser,
   password: "",
   database: "usuarios_db",
 });

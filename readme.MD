@@ -1,0 +1,12 @@
+- crear elproyecto "npm init -y"
+- en el package se agrega "type": "module" <!-- saber la diferencia entre ecmascript/commonjs -->
+- dependencia "nodemon"
+- script auto run para nodemon
+- dependencia "express"
+- crear archivo app.js
+- crear un servidor basico con express
+- se crea la carpeta "src"
+- se crea la carpeta "public"
+- se crea el archivo "readme.MD"
+- se crea el archivo ".gitignore" se le carga el "node_modules"
+- se crea el archivo ".env" y ".env.template" <!-- saber que son las variables de entorno -->
