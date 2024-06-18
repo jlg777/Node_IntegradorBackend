@@ -33,7 +33,7 @@ app.post("/upload", upload.single("archivo"), (req, res) => {
   res.send("Archivo subido correctamente");
 });
 
-app.use("/user", usersRouter);
+app.use("/user", upload.single("archivo"), usersRouter);
 
 /*app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");

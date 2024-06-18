@@ -36,10 +36,10 @@ connection.connect((err) => {
 
       const createTableQuery = `
                 CREATE TABLE IF NOT EXISTS usuarios (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    nombre VARCHAR(100) NOT NULL,
-                    apellido VARCHAR(100) NOT NULL,
-                    mail VARCHAR(255) NOT NULL
+                    id VARCHAR(100) NOT NULL PRIMARY KEY,
+                    correo VARCHAR(100) NOT NULL,
+                    pass VARCHAR(100) NOT NULL,
+                    avatar VARCHAR(255) NOT NULL
                 );            
             `;
 
