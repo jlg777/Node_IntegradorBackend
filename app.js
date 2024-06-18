@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
+import upload from "./src/utils/multerConfig.js";
 //import { loginRouter } from "./src/routes/login.routes.js";
 //import { startDb } from "./src/config/db.js";
 //import { sync } from "./src/models/user.model.js";
@@ -25,8 +26,14 @@ app.use(express.urlencoded({ extended: true }));
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
 
-app.use("/user", usersRouter);
+// Ejemplo de uso en una ruta de carga de archivos
+app.post("/upload", upload.single("archivo"), (req, res) => {
+  // req.file contiene la información del archivo cargado
+  console.log(req.file);
+  res.send("Archivo subido correctamente");
+});
 
+app.use("/user", usersRouter);
 
 /*app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");
