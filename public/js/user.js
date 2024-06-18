@@ -12,7 +12,7 @@ if (localStorage.getItem("user")) {
   userLogedi.classList.remove("invisible");
   userLogedi.classList.add("visible");
   var userName1 = document.createElement("p");
-  userName1.textContent = userlogueado.email_user;
+  userName1.textContent = userlogueado.correo;
   userNameID.appendChild(userName1);
 
   userCardTitle.textContent = "Bienvenido";

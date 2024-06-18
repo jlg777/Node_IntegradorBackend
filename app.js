@@ -5,6 +5,7 @@ import path from "path";
 import cors from "cors";
 import { usersRouter } from "./src/routes/users.routes.js";
 import upload from "./src/utils/multerConfig.js";
+import { loginRouter } from "./src/routes/login.routes.js";
 //import { loginRouter } from "./src/routes/login.routes.js";
 //import { startDb } from "./src/config/db.js";
 //import { sync } from "./src/models/user.model.js";
@@ -34,6 +35,7 @@ app.post("/upload", upload.single("archivo"), (req, res) => {
 });
 
 app.use("/user", upload.single("archivo"), usersRouter);
+app.use("/login", loginRouter);
 
 /*app.use((request, response) => {
   response.status(404).send("<h1>Error 404 - Not Found</h1>");

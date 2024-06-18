@@ -19,7 +19,7 @@ export const ctrlGetUsers = async (request, response) => {
 };
 
 // Función para crear un nuevo usuario
-export async function ctrlPostUser(request, response) {
+export const ctrlPostUser = async (request, response) => {
   try {
     const { correo, pass } = request.body;
     const avatar = request.file.filename; // Nombre del archivo de la imagen subida
@@ -42,4 +42,4 @@ export async function ctrlPostUser(request, response) {
     console.error(error);
     response.status(500).json({ error: "Error interno del servidor" });
   }
-}
+};
